@@ -2,15 +2,12 @@
 <html>
 <head>
    <title></title>
+   <script type="text/javascript" src="resources/js/matchMedia.js"></script>
    <script type="text/javascript">
 
       /* Very simple detection of currently support clients - Android & iOS */
       function redirectByClient() {
-         if (navigator.userAgent.match(/Android/i) ||
-               navigator.userAgent.match(/iPad/i) ||
-               navigator.userAgent.match(/iPhone/i) ||
-               navigator.userAgent.match(/iPod/i)
-               ) {
+         if (matchMedia("all and (max-width: 480px)").matches) {
             document.location = 'mobile.html';
          } else {
             document.location = 'desktop.html';
