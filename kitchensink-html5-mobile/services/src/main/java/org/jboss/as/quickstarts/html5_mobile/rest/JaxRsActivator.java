@@ -14,18 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.poh5helloworld;
+package org.jboss.as.quickstarts.html5_mobile.rest;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
 /**
- * A simple CDI service which is able to say hello to someone
+ * A class extending {@link Application} and annotated with @ApplicationPath is the Java EE 6
+ * "no XML" approach to activating JAX-RS.
  * 
- * @author Pete Muir
- * 
+ * <p>
+ * Resources are served relative to the servlet path specified in the {@link ApplicationPath}
+ * annotation.
+ * </p>
  */
-public class HelloService {
-
-   String createHelloMessage(String name) {
-      return "Hello " + name + "!";
-   }
-
+@ApplicationPath("/rest")
+public class JaxRsActivator extends Application {
+   /* class body intentionally left blank */
 }

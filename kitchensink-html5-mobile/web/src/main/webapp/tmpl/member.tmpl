@@ -16,12 +16,14 @@
     limitations under the License.
 
 -->
-<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-    <!-- One of the way of activating REST Servises is adding these lines, the server is responsible for adding the corresponding servlet automatically. If the src folder, org.jboss.as.quickstarts.poh5helloworld.HelloWorld class has the Annotations to receive REST invocation-->
-    <servlet-mapping>
-        <servlet-name>javax.ws.rs.core.Application</servlet-name>
-        <url-pattern>/hello/*</url-pattern>
-    </servlet-mapping>
-</web-app>
+<script type="text/template" id="member-tmpl">
+<% _.each(members, function(member) { %>
+	<tr class="member">
+		<td><%=member.id%></td>
+		<td><%=member.name%></td>
+		<td><%=member.email%></td>
+		<td><%=member.phoneNumber%></td>
+		<td><a href="/jboss-as-kitchensink-html5-mobile-services/rest/members/<%=member.id%>" target="_blank" class="resturl">XML</a> / <a href="/jboss-as-kitchensink-html5-mobile-services/rest/members/<%=member.id%>/json" target="_blank" class="resturl">JSON</a></td>
+	</tr>
+<% }); %>
+</script>
